@@ -8,7 +8,8 @@ use rustyline::Editor;
 extern crate clap;
 use clap::{App, AppSettings, Arg, SubCommand};
 
-use friday::friday::{Event, Friday, State, Using};
+extern crate friday_lib;
+use friday_lib::friday::{Event, Friday, State, Using};
 
 struct FmtVec<'a, T: fmt::Display>(&'a Vec<T>, usize);
 impl<'a, T: fmt::Display> fmt::Display for FmtVec<'a, T> {

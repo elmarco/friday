@@ -1,0 +1,10 @@
+[package]
+name = "friday"
+version = "0.1.0"
+authors = ["Marc-André Lureau <marcandre.lureau@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+rustyline = "2.1.0"
+clap = "2.27.0"
+friday-lib = { path = "../lib" }
