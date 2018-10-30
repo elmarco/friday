@@ -342,6 +342,7 @@ impl<'a> Friday<'a> {
                     if card.destroy {
                         return Err("Card is to be destroyed".to_string());
                     }
+                    *using = Using::None;
                     self.use_card(c, using, left, right)?;
                     self.state = state;
                 }
