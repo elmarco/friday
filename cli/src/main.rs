@@ -24,13 +24,6 @@ impl<'a, T: fmt::Display> fmt::Display for FmtVec<'a, T> {
     }
 }
 
-// FIXME: rewrite with closure?
-fn next(game: &mut Friday, event: Event) {
-    if let Err(hint) = game.next(event) {
-        println!("{}", hint);
-    }
-}
-
 fn main() {
     let app = clap_app!(friday =>
        (version: crate_version!())
@@ -81,6 +74,13 @@ fn main() {
             SubCommand::with_name("lose")
                 .arg(Arg::with_name("discard").takes_value(true).multiple(true)),
         );
+
+    // game cannot be captured, as it would prevent from being used elsewhere..
+    let next = |game: &mut Friday, event: Event| {
+        if let Err(hint) = game.next(event) {
+            eprintln!("{}", hint);
+        }
+    };
 
     loop {
         {
