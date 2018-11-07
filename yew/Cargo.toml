@@ -1,0 +1,10 @@
+[package]
+name = "friday-yew"
+version = "0.1.0"
+authors = ["Marc-André Lureau <marcandre.lureau@redhat.com>"]
+edition = "2018"
+
+[dependencies]
+stdweb = "0.4.2"
+friday-lib = { path = "../lib" }
+yew = { path = "../../yew" }
